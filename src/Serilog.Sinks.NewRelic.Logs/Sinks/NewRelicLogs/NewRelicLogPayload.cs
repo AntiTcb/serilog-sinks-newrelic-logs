@@ -40,9 +40,7 @@ namespace Serilog.Sinks.NewRelic.Logs
 
             // New Relic assigns different colors based on the log level and it
             // doesn't recognize the "Information" level, only "Info".
-            this.Attributes.Add("level", logEvent.Level == LogEventLevel.Information
-                ? "Info" 
-                : logEvent.Level.ToString());
+            this.Attributes.Add("level", GetNewRelicLevel(logEvent.Level));
 
             // Include the ISO 8601 timestamp to preserve the timezone info.
             this.Attributes.Add("iso8601Timestamp", logEvent.Timestamp);
@@ -87,6 +85,18 @@ namespace Serilog.Sinks.NewRelic.Logs
             {
                 this.Attributes.Add(key, NewRelicPropertyFormatter.Simplify(value));
             }
+        }
+
+        private string GetNewRelicLevel(LogEventLevel level)
+        {
+            return level switch
+            {
+                LogEventLevel.Information => "INFO",
+                LogEventLevel.Warning => "WARN",
+                LogEventLevel.Error or LogEventLevel.Fatal => "ERROR",
+                LogEventLevel.Debug or LogEventLevel.Verbose => "DEBUG",
+                _ => "INFO",
+            };
         }
     }
 }

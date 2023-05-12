@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NewRelic.Api.Agent, Version=9.0.0.0, Culture=neutral, PublicKeyToken=06552fced0b33d87, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NewRelic.Agent.Api.9.8.0\lib\net45\NewRelic.Api.Agent.dll</HintPath>
+    <Reference Include="NewRelic.Api.Agent, Version=10.0.0.0, Culture=neutral, PublicKeyToken=06552fced0b33d87, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NewRelic.Agent.Api.10.10.0\lib\net462\NewRelic.Api.Agent.dll</HintPath>
     </Reference>
     <Reference Include="NewRelic.LogEnrichers.Serilog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0f1b6df23b18ab4f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NewRelic.LogEnrichers.Serilog.1.0.1\lib\net45\NewRelic.LogEnrichers.Serilog.dll</HintPath>
